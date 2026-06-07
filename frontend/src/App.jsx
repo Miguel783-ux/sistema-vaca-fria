@@ -20,6 +20,7 @@ import DeclaracionPropositos from './components/DeclaracionPropositos';
 import DiagramaNiveles from './components/DiagramaNiveles';
 import DiagramaER from './components/DiagramaER';
 import DiagramaUSO from './components/DiagramaUSO';
+import Videos from './components/videos';
 function App() {
   const [seccion, setSeccion] = useState('inicio'); 
 
@@ -127,7 +128,7 @@ function App() {
         )}
         {seccion === 'diagramaUSO' && <DiagramaUSO />}
         {seccion === 'orientada a objetos' && <OrientadaObjetos />}
-        {seccion === 'videos' && <div><h2>VIDEOS</h2><p>Contenido de videos relacionado con el proyecto.</p></div>}
+        {seccion === 'videos' && <Videos />}
       </main>
       <Footer />
     </div>
