@@ -1,0 +1,444 @@
+/* =========================================
+   1. IMPORTACIÓN DE FUENTES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lobster&family=Cherry+Cream+Soda&display=swap');
+
+/* =========================================
+   2. CONFIGURACIÓN BASE Y CUERPO (BODY)
+   ========================================= */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #578cce; /* Azul base */
+  background-image: url('./assets/fondo.png'); /* Asegúrate de tener fondo.png en assets */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: #bcbcbc; /* Color de texto gris claro original */
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.main-container {
+  max-width: 920px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro transparente */
+  min-height: 100vh;
+  padding: 10px 30px 40px 30px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+/* =========================================
+   3. ESTILO DE TÍTULOS (DISEÑO RETRO CON BORDE)
+   ========================================= */
+h2, .titulo-historia, .section-title {
+  font-family: 'Cherry Cream Soda', cursive;
+  color: #ffffff; /* Letra blanca */
+  font-size: 40px;
+  text-align: center;
+  margin: 25px 0;
+  transition: all 0.3s ease;
+  cursor: default;
+  /* Efecto de borde negro (Outline) y sombra de profundidad */
+  text-shadow: 
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     4px  4px 5px rgba(0,0,0,0.8);
+}
+
+/* Efecto Iluminación al pasar el mouse por los títulos */
+h2:hover, .titulo-historia:hover {
+  color: #ffef00; /* Se ilumina en amarillo brillante */
+  transform: scale(1.03);
+  text-shadow: 
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0px  0px 15px rgba(255, 239, 0, 0.7);
+}
+
+h3 {
+  font-family: 'Kranky', cursive;
+  color: #eeeeee;
+  font-size: 26px;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     3px  3px 4px rgba(0,0,0,0.7);
+}
+
+h3:hover {
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 10px #fff;
+}
+
+/* =========================================
+   4. NAVBAR Y SUBMENÚS DESPLEGABLES
+   ========================================= */
+.navbar {
+  margin: 20px 0;
+  border-top: 2px solid #ffbf06;
+  border-bottom: 2px solid #ffbf06;
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.flex-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flex-menu > li {
+  position: relative;
+  padding: 15px 20px;
+  color: #ffbf06;
+  font-family: 'Cherry Cream Soda', cursive;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* Hover en Navbar Principal (Iluminación) */
+.flex-menu > li:hover, .flex-menu > li.active {
+  color: #ffffff;
+  background: rgba(255, 191, 6, 0.15);
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0px 0px 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo de los Submenús */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  min-width: 220px;
+  list-style: none;
+  padding: 10px 0;
+  border: 1px solid #ffbf06;
+  z-index: 1000;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.7);
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.submenu li {
+  padding: 12px 20px;
+  color: #ffbf06;
+  font-family: 'Kranky', cursive;
+  font-size: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 191, 6, 0.1);
+  transition: all 0.3s ease;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.submenu li:hover {
+  color: white;
+  background: rgba(255, 191, 6, 0.2);
+  padding-left: 28px; /* Desplazamiento */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 8px #fff;
+}
+/* --- Estilos para el Segundo Nivel (Sub-subtítulos) --- */
+
+/* Contenedor del subtítulo que tiene más contenido */
+.has-inner-submenu {
+  position: relative;
+}
+
+/* La lista de sub-subtítulos (oculta por defecto) */
+.inner-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* Se abre a la derecha del primer submenú */
+  background-color: rgba(0, 0, 0, 0.95);
+  min-width: 240px;
+  list-style: none;
+  padding: 10px 0;
+  border: 1px solid #ffbf06;
+  z-index: 1001;
+  box-shadow: 8px 0px 16px rgba(0,0,0,0.8);
+}
+
+/* Mostrar sub-subtítulo al hacer hover en el subtítulo */
+.has-inner-submenu:hover > .inner-submenu {
+  display: block;
+  animation: fadeInRight 0.3s ease-out;
+}
+
+/* Estilo de los sub-subtítulos */
+.inner-submenu li {
+  padding: 12px 20px;
+  color: #ffbf06;
+  font-family: 'Kranky', cursive;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 191, 6, 0.1);
+  transition: all 0.3s ease;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.inner-submenu li:hover {
+  color: white;
+  background: rgba(255, 191, 6, 0.3);
+  padding-left: 25px;
+  text-shadow: 0 0 8px #fff;
+}
+
+/* Animación para que aparezca desde la izquierda */
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Indicador de flechita para saber que hay más contenido */
+.has-inner-submenu > span::after {
+  content: " ▶";
+  font-size: 10px;
+  float: right;
+  margin-left: 10px;
+}
+
+/* =========================================
+   5. LAYOUT DE HISTORIA (MODO FLOTANTE)
+   ========================================= */
+.inicio-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.col-izquierda {
+  flex: 2.5;
+}
+
+.historia-content {
+  color: #eee;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Bloque Flotante a la izquierda (Imagen + Fundadoras) */
+.aside-izquierdo {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.img-mini {
+  width: 100%;
+  height: auto;
+  border: 3px solid #ffbf06;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+}
+
+.fundadoras-box {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255, 191, 6, 0.15);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 191, 6, 0.4);
+  text-align: center;
+}
+
+.fundadoras-box p {
+  font-size: 13px;
+  color: white;
+  margin: 0;
+}
+
+.historia-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =========================================
+   6. COLUMNA DERECHA (FACEBOOK)
+   ========================================= */
+.col-derecha {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  text-align: center;
+  position: sticky;
+  top: 20px;
+}
+
+.btn-facebook {
+  display: inline-block;
+  background-color: #1877F2;
+  color: white !important;
+  padding: 12px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-facebook:hover {
+  background-color: #145dbf;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   7. PRODUCTOS GRID
+   ========================================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+/* =========================================
+   8. ANIMACIONES Y FOOTER
+   ========================================= */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 50px;
+  border-top: 1px solid #333;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Adaptación para Celulares */
+@media (max-width: 768px) {
+  .inicio-layout { flex-direction: column; }
+  .aside-izquierdo {
+    float: none;
+    width: 80%;
+    margin: 0 auto 20px auto;
+  }
+}
+/* ==========================================================================
+   CONFIGURACIÓN GLOBAL RESPONSIVA (AGREGAR AL FINAL DE APP.CSS)
+   ========================================================================== */
+
+/* 1. Control de imágenes y diagramas globales */
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* 2. Contenedor principal de la aplicación */
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Evita el desborde y scroll horizontal */
+}
+
+/* 3. Ajuste de las secciones de documentos continuos */
+.documento-continuo {
+  width: 100%;
+  max-width: 1200px; /* Evita que en pantallas gigantes se estire demasiado */
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.documento-continuo section {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-x: auto; /* Permite scroll interno si los diagramas son muy detallados */
+}
+
+/* 4. Estilos específicos para la sección del Diagrama de Uso */
+.diagrama-uso-images {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.diagrama-uso-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES: ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  
+  /* Ajustar el padding general del main */
+  main {
+    padding: 10px !important;
+  }
+
+  /* Forzar a que los textos y títulos no se desborden */
+  h2 {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 14px !important;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  /* Flexbox responsivo para los botones del Footer */
+  .footer-buttons-container {
+    gap: 15px !important;
+  }
+
+  /* Ajustar el tamaño del Banner o Header principal si es necesario */
+  .header-banner {
+    background-size: cover;
+    height: auto;
+    padding: 20px 10px;
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES: ADAPTACIÓN PARA TABLETS
+   ========================================================================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .documento-continuo {
+    padding: 20px;
+  }
+}
