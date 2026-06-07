@@ -9,7 +9,7 @@ const ArbolProblema = () => {
       <div className="arbol-images">
         <img src={arbolImage} alt="Árbol del Problema" className="arbol-image" />
       </div>
-      <h2>1.4.1 Árbol del Problema</h2>
+      <h2>1.4.1 Árbol de ojetivos</h2>
       <div className="arbol-images">
         <img src={arbolImage2} alt="Árbol del Problema Detallado" className="arbol-image" />
       </div>
